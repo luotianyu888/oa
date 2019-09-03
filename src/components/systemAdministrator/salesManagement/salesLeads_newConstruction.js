@@ -2,26 +2,40 @@
 
 import React from 'react';
 import Left from './../../commonality/left'
-import {Button,Breadcrumb,Form, DatePicker} from 'antd';
-
+import {Button,Breadcrumb,Form,Select,DatePicker,message} from 'antd';
 import './../../../assets/css/pc/salesLeads_newConstruction.css'
 import Navigation from './../../commonality/navigation'
 import { now } from 'moment';
 import axios from 'axios';
-import { link } from 'fs';
 
 // const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 class salesLeads_newConstruction extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             jurisdiction:true,
             newsdate:new Date(now()).toLocaleString(),
-            zhipai:[],userid:'',
+            zhipai:[],zhipai_name:'',zhipai_time:'',
         }
+        
     }
-
-
+    componentWillMount() {
+        var that=this;
+        axios({
+            method:'get',
+            url:'api/yingxiao/xiaoshou_add',
+        })
+        .then(function(response){
+            var list1 = response.data.data;
+            that.setState({
+                zhipai:list1
+            })
+        })
+        .catch(function(err){
+         console.log(err)
+        })
+        
+    } 
 
     getInput=(e)=>{
         let inputValue = e.target.value;
@@ -31,52 +45,92 @@ class salesLeads_newConstruction extends React.Component{
         })     
     }
 
+    handleChange(value){
+        this.setState({
+            zhipai_name:value,
+        })
+    }
+
+    zpshijian(date){
+        this.setState({
+            zhipai_time:date.format('YYYY-MM-DD'),
+        })
+    }
     //提交表单
     snc_submit(){
 
         var body = {
-            userid: this.state.userid,
+            usernum: this.state.usernum,
+            creat_name:'zhansan',
+            creat_time:this.state.newsdate,
+            zhipai_name:this.state.zhipai_name,
+            zhipai_time:this.state.zhipai_time,
+            jihui_from:this.state.jihui_from,
             kehu_name:this.state.kehu_name,
-          
+            success_jilv:this.state.success_jilv,
+            abstract:this.state.abstract,
+            lianxi_name:this.state.lianxi_name,
+            lianxi_tel:this.state.lianxi_tel,
+            jihui_desc:this.state.jihui_desc,
         }
-          // console.log(body);
-          axios({
-            method: 'post',
-            url: 'api/people/add',
-            data: body
-           })
-           .then(function (response) {
-              console.log(response.data);
-           })
-           .catch(function (error) {
-              console.log(error);
-           });
-           
+        var that=this;
+       // console.log(body);
+        axios({
+         method: 'post',
+         url: 'api/yingxiao/xiaoshou_add',
+         data: body
+        })
+        .then(function (response) {
+            if(response.data.code==1){
+                message.success(response.data.msg ,0.5,function(){
+                    that.props.history.push('/salesLeads_management')
+                })
+            }else{
+                message.error(response.data.msg,1)
+            }
+        })
+        .catch(function (error) {
+            message.error(error,1)
+        });
+        
     }
+ 
+  
 
     render(){
         const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
-
         // function onChange(date, dateString) {
-        //     console.log(date, dateString);
+        //    // console.log(date, dateString);
         // }
         // 权限判定是否显示
         const jurisdiction =this.state.jurisdiction
         //console.log(jurisdiction)
-
+        //select
+        const Option = Select.Option;
+        // function  handleChange(value) {
+        //    console.log(value);
+        // }
         const  als= jurisdiction
                     ?<li>
                         <div className="oa-snc-groupinput1">
                             <div className="oa-snc-ginput-left">指派给</div>
-                            <input ></input>
+                            <Select size="large" defaultValue="请选择" style={{ width: 230 }} onChange={e=>{this.handleChange(e)}}>
+                                {
+                                    this.state.zhipai.map(function(val,key){
+                                        return (<Option key={key} value={val.id}>{val.username}</Option>);
+                                    })
+                                }
+                            </Select>
                         </div>
                         <div className="oa-snc-groupinput1">
                             <div className="oa-snc-ginput-left">指派时间</div>
-                            <input ></input>
+                            <div className="oa-snc-ginput-right">
+                                <DatePicker   style={{width:'100%'}} name="zhipai_time" onChange={e=>{this.zpshijian(e)}}/>
+                            </div>
                         </div>
                     </li>
-                :'未加载到内容'
-       
+                    :''
+        
         return(
             <div>
                 <Left></Left>
@@ -91,8 +145,7 @@ class salesLeads_newConstruction extends React.Component{
                     </div>
                     <div className="oa-snc-buttongroup">
                         <Button type="submit" onClick={this.snc_submit.bind(this)}>提交</Button>
-                        
-                        <Button href="">返回</Button>
+                        <Button href="javascript:history.go(-1)">返回</Button>
                     </div>
                     <div className="oa-snc-outbox">
                         <Form id="formdata">
@@ -100,13 +153,12 @@ class salesLeads_newConstruction extends React.Component{
                                 <ul className="oa-snc-formbox">
                                     <li>
                                         <div className="oa-snc-groupinput1">
-                                            <div className="oa-snc-ginput-left">编号</div>
-                                            
-                                            <input onChange={e=>{this.getInput(e)}} name="userid" ></input>
+                                            <div className="oa-snc-ginput-left">用户编号</div>
+                                            <input onChange={e=>{this.getInput(e)}} name="usernum"></input>
                                         </div>
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">机会来源</div>
-                                            <input ></input>
+                                            <input onChange={e=>{this.getInput(e)}} name="jihui_from"></input>
                                         </div>
                                     </li>
                                     <li>
@@ -116,42 +168,43 @@ class salesLeads_newConstruction extends React.Component{
                                         </div>
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">成功几率</div>
-                                            <input ></input>
+                                            <input onChange={e=>{this.getInput(e)}} name="success_jilv"></input>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-textarea">
                                             <div className="oa-snc-ginput-left2">概要</div>
-                                            <textarea></textarea>
+                                            <textarea onChange={e=>{this.getInput(e)}} name="abstract"></textarea>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">联系人</div>
-                                            <input ></input>
+                                            <input onChange={e=>{this.getInput(e)}} name="lianxi_name"></input>
                                         </div>
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">联系电话</div>
-                                            <input ></input>
+                                            <input onChange={e=>{this.getInput(e)}} name="lianxi_tel"></input>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-textarea">
                                             <div className="oa-snc-ginput-left2">机会描述</div>
-                                            <textarea></textarea>
+                                            <textarea onChange={e=>{this.getInput(e)}} name="jihui_desc"></textarea>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">创建人</div>
-                                            <input ></input>
+                                            <input value="张三" readOnly></input>
                                         </div>
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">创建时间</div>
-                                            <div className="oa-snc-ginput-right">
-                                                {/* <DatePicker onChange={onChange} style={{width:'100%'}} />
-                                                <DatePicker    style={{width:'100%'}}/> */}
-                                            </div>
+                                            <input value={this.state.newsdate} readOnly></input>
+                                            {/*<div className="oa-snc-ginput-right">*/}
+                                                {/* <DatePicker onChange={onChange} style={{width:'100%'}} /> */}
+                                                {/*<DatePicker    style={{width:'100%'}}/>
+                                            </div>*/}
                                         </div>
                                     </li>
                                     {als}

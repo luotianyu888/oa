@@ -53,7 +53,7 @@ class salesLeads_editConstruction extends React.Component{
             
         })
         .catch(function(err){
-       //  message.error(err)
+         message.error(err)
         })
         
     } 
@@ -172,28 +172,28 @@ class salesLeads_editConstruction extends React.Component{
                                 <ul className="oa-snc-formbox">
                                     <li>
                                         <div className="oa-snc-groupinput1">
-                                            <div className="oa-snc-ginput-left">时间</div>
-                                            <input onChange={e=>{this.getInput(e)}} name="data" defaultValue={this.state.jihui_from}></input>
+                                            <div className="oa-snc-ginput-left">用户编号</div>
+                                            <input readOnly value={this.state.usernum}></input>
                                         </div>
                                         <div className="oa-snc-groupinput1">
-                                            <div className="oa-snc-ginput-left">地点</div>
-                                            <input onChange={e=>{this.getInput(e)}} name="address" defaultValue={this.state.jihui_from}></input>
+                                            <div className="oa-snc-ginput-left">机会来源</div>
+                                            <input onChange={e=>{this.getInput(e)}} name="jihui_from" defaultValue={this.state.jihui_from}></input>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-groupinput1">
-                                            <div className="oa-snc-ginput-left">概要</div>
-                                            <input onChange={e=>{this.getInput(e)}} name="gaiyao" defaultValue={this.state.kehu_name}></input>
+                                            <div className="oa-snc-ginput-left">客户名称</div>
+                                            <input onChange={e=>{this.getInput(e)}} name="kehu_name" defaultValue={this.state.kehu_name}></input>
                                         </div>
                                         <div className="oa-snc-groupinput1">
-                                            <div className="oa-snc-ginput-left">备注</div>
-                                            <input onChange={e=>{this.getInput(e)}} name="beizhu" defaultValue={this.state.success_jilv}></input>
+                                            <div className="oa-snc-ginput-left">成功几率</div>
+                                            <input onChange={e=>{this.getInput(e)}} name="success_jilv" defaultValue={this.state.success_jilv}></input>
                                         </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-textarea">
-                                            <div className="oa-snc-ginput-left2">详细信息</div>
-                                            <textarea onChange={e=>{this.getInput(e)}} name="detail" value={this.state.abstract} />
+                                            <div className="oa-snc-ginput-left2">概要</div>
+                                            <textarea onChange={e=>{this.getInput(e)}} name="abstract" value={this.state.abstract} />
                                         </div>
                                     </li>
                                     <li>
@@ -204,8 +204,7 @@ class salesLeads_editConstruction extends React.Component{
                                         <div className="oa-snc-groupinput1">
                                             <div className="oa-snc-ginput-left">联系电话</div>
                                             <input onChange={e=>{this.getInput(e)}} name="lianxi_tel" defaultValue={this.state.lianxi_tel}></input>
-                                   
-                                   .     </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <div className="oa-snc-textarea">
