@@ -1,0 +1,84 @@
+.oa-snc-buttongroup{
+    width: 100%;
+    padding: 30px 80px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+.oa-snc-outbox{
+    width: calc(100% - 160px);
+    min-height: 650px;
+    margin: 0 auto 0;
+    background-color: #fff;
+    /* border:1px solid red; */
+    box-sizing: border-box;
+    padding: 50px 0 50px 80px;
+    margin-bottom:50px;
+}
+.oa-snc-buttongroup>a{
+    margin-left:30px;
+}
+.oa-snc-formbox{
+    width: 80%;
+    min-height: 500px;
+    /* border:1px solid red; */
+}
+.oa-snc-formbox>li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px!important;
+}
+.oa-snc-groupinput1{
+    width: 40%;
+    display: flex;
+}
+.oa-snc-ginput-left{
+    width: 80px;
+    height: 40px;
+    background-color: #1798DC;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    z-index: 2;
+}
+.oa-snc-groupinput1>input{
+    width: calc(100% - 80px);
+    border:1px solid #ccc;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.oa-snc-textarea{
+    width: 100%;
+    display: flex;
+}
+.oa-snc-ginput-left2{
+    width: 80px;
+    height: 120px;
+    background-color: #1798DC;
+    color: #fff;
+    text-align: center;
+    line-height: 120px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.oa-snc-textarea>textarea{
+    width: calc(100% - 80px);
+    border:1px solid #ccc;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+textarea{
+    outline: none;
+}
+.oa-snc-ginput-right{
+    width: calc(100% - 80px)!important;
+    margin-left: -2px;
+    /* padding-left: 10px;
+    box-sizing: border-box; */
+}

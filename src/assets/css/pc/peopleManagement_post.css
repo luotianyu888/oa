@@ -1,0 +1,86 @@
+
+.oa-pmp-topbox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 130px;
+    box-sizing: border-box;
+}
+.oa-pmpp-tablelist{
+    width: calc(100% - 130px);
+    min-height: 650px;
+    background-color: #fff;
+    margin: auto;
+}
+.oa-pmp-adddpost{
+    width: 500px;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -250px;
+    border:1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+}
+.oa-pmp-popupbox{
+    width: 100%;
+    height: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+ul>li{
+    list-style: none;
+    margin:0;
+    padding: 0;
+}
+.oa-pmp-post-title{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #1798DC;
+    color: #fff;
+}
+.oa-pmp-popupbox-layer{
+    width: 100%;
+    margin-top:30px;
+    display: flex;
+    align-items: center;
+}
+.oa-pmp-popupbox-layer-left{
+    width: 80px;
+}
+.oa-pmp-popupbox-layer-right{
+    width: calc(100% - 80px);
+    min-height: 30px;
+}
+.ant-checkbox-group>div>div{
+    padding-bottom:20px;
+}
+.oa-pmp-popupbox-layer-right-li{
+    width: calc(100% - 80px);
+
+}
+.submit-box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 60px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.submit-box>input{
+    width: 70px;
+    height: 30px;
+    outline: none;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.submit-box>input[type=submit]{
+    background-color: #1798DC;
+    color: #fff;
+    cursor: pointer;
+}

@@ -1,0 +1,25 @@
+.oa-cca-top-layer{
+    width: 100%;
+    padding:20px  80px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+
+.oa-cca-top-layer-left>input{
+    width: 150px;
+    height: 33px;
+    padding-left: 10px;
+    border:1px solid #eee;
+    border-radius: 3px;
+    margin-left: 20px;
+    margin-right: 60px;
+}
+.oa-cca-bodybox{
+    width: calc(100% - 160px);
+    min-height: 650px;
+    background-color: #fff;
+    margin: auto;
+    margin-top: 20px;
+}

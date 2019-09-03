@@ -1,0 +1,102 @@
+
+.oa-cdpe-groupselect{
+    padding: 30px 280px 40px 80px;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.oa-cdpe-outbox{
+    width: calc(100% - 160px);
+    min-height: 650px;
+    background-color: #fff;
+    margin: 0px auto 0;
+}
+.oa-cdpe-groupselectin{
+    width: 100%;
+    display: flex;
+}
+.oa-cdpe-groupselectin-layer1{
+    width: 240px;
+    display: flex;
+    align-items: center;
+}
+.oa-cdpe-groupselectin-layer1>div{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.oa-cdpe-groupselectin-layer1>input{
+    outline: none;
+    width: calc(100% - 80px);
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    border-radius: 3px;
+
+}
+.oa-cdpe-groupselectin-layer2{
+    width: 280px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+.oa-cdpe-groupselectin-layer2>div{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.oa-cdpe-groupselectin-layer2>input{
+    outline: none;
+    width: calc(100% - 80px);
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    border-radius: 3px;
+}
+.oa-cdpe-submit{
+    width: 80px;
+    height: 30px;
+    background-color: #1798DC;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ant-select-selection__rendered,.ant-select-selection--single{
+    line-height: 30px!important;
+    height: 32px!important;
+}
+.ant-select-selection--single{
+    border:1px solid #fff!important;
+}
+.oa-cdpe-table-client{
+    width: 200px;
+    max-width: 200px;
+    box-sizing: border-box;
+    padding:0 15px;
+}
+.oa-cdpe-databable{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.oa-cdpe-databable:hover{
+    background-color: #EEFDF9
+}
+.oa-ta-a{
+    color: #888;
+}
+.oa-pagination{
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+.oa-sm-buttongroup{
+    display: flex;
+    align-items: center;
+}

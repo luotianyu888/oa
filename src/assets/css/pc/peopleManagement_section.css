@@ -1,0 +1,67 @@
+.oa-pmp-topbox{
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding-right: 125px;
+}
+.oa-pmp-topbox>button{
+    margin-right: 30px;
+}
+.oa-pmp-tablelist{
+    width: calc(100% - 130px);
+    min-height: 550px;
+    background-color: #fff;
+    margin: auto;
+}
+.oa-pmp-popups{
+    width: 400px;
+    min-height: 300px;
+    border:1px solid #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.oa-pmp-popups-box{
+    width: 100%;
+
+}
+.oa-pmp-popups-layer1{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #1798DC;
+    text-align: center;
+    color: #fff;
+}
+.oa-pmp-popups-layer2{
+    display: flex;
+    margin: auto;
+    margin-top: 60px;
+    width: 300px;
+   align-items: center;
+}
+.oa-pmp-popups-layer2>div{
+    width: 80px;
+}
+.oa-pmp-popups-layer3{
+    display: flex;
+    margin: auto;
+    margin-top: 80px;
+    width: 300px;
+   align-items: center;
+   justify-content: space-between
+}
+.oa-pmp-popups-layer3>input{
+    width: 60px;
+    height: 35px;
+    outline: none;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}

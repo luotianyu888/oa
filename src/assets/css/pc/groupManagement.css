@@ -1,0 +1,31 @@
+.oa-gm-topbox{
+    width: 100%;
+    padding:30px 83px;
+    box-sizing: border-box;
+    /* border:1px solid red; */
+    display: flex;
+    align-items: center;
+}
+.oa-gm-topleft{
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+.oa-gm-topbox>button{
+    margin-right: 30px;
+    color: #fff;
+}
+.oa-gm-topbox>a{
+    color: #fff;
+}
+.oa-gm-tableList{
+    width: calc(100% - 160px);
+    min-height: 600px;
+    padding-bottom:50px;
+    margin: auto;
+    background-color: #fff;
+}
+.oa-gm-span{
+    margin-right: 15px;
+}
+
